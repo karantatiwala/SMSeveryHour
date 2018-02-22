@@ -1,0 +1,230 @@
+	 <form action="/send/" method="post">{% csrf_token %}
+
+	 <select name="country_code">
+	  <option class="item" value="+64"><i class="nz flag"></i>New Zealand (+64)</option>
+	  <option class="item" value="+61"><i class="au flag"></i>Australia (+61)</option>
+	  <option class="item" value="+1"><i class="us flag"></i>USA (+1)</option>
+	  <option class="item" value="+44"><i class="gb flag"></i>UK (+44)</option>
+	  <!-- <option class="item disabled">Other Countries</option> -->
+	  <option class="item" value="+213"><i class="dz flag"></i>Algeria (+213)</option>
+	  <option class="item" value="+376"><i class="ad flag"></i>Andorra (+376)</option>
+	  <option class="item" value="+244"><i class="ao flag"></i>Angola (+244)</option>
+	  <option class="item" value="+1264"><i class="ai flag"></i>Anguilla (+1264)</option>
+	  <option class="item" value="+1268"><i class="ag flag"></i>Antigua &amp; Barbuda (+1268)</option>
+	  <option class="item" value="+54"><i class="ar flag"></i>Argentina (+54)</option>
+	  <option class="item" value="+374"><i class="am flag"></i>Armenia (+374)</option>
+	  <option class="item" value="+297"><i class="aw flag"></i>Aruba (+297)</option>
+	  <option class="item" value="+43"><i class="at flag"></i>Austria (+43)</option>
+	  <option class="item" value="+994"><i class="az flag"></i>Azerbaijan (+994)</option>
+	  <option class="item" value="+1242"><i class="bs flag"></i>Bahamas (+1242)</option>
+	  <option class="item" value="+973"><i class="bh flag"></i>Bahrain (+973)</option>
+	  <option class="item" value="+880"><i class="bd flag"></i>Bangladesh (+880)</option>
+	  <option class="item" value="+1246"><i class="bb flag"></i>Barbados (+1246)</option>
+	  <option class="item" value="+375"><i class="by flag"></i>Belarus (+375)</option>
+	  <option class="item" value="+32"><i class="be flag"></i>Belgium (+32)</option>
+	  <option class="item" value="+501"><i class="bz flag"></i>Belize (+501)</option>
+	  <option class="item" value="+229"><i class="bj flag"></i>Benin (+229)</option>
+	  <option class="item" value="+1441"><i class="bm flag"></i>Bermuda (+1441)</option>
+	  <option class="item" value="+975"><i class="bt flag"></i>Bhutan (+975)</option>
+	  <option class="item" value="+591"><i class="bo flag"></i>Bolivia (+591)</option>
+	  <option class="item" value="+387"><i class="ba flag"></i>Bosnia Herzegovina (+387)</option>
+	  <option class="item" value="+267"><i class="bw flag"></i>Botswana (+267)</option>
+	  <option class="item" value="+55"><i class="br flag"></i>Brazil (+55)</option>
+	  <option class="item" value="+673"><i class="bn flag"></i>Brunei (+673)</option>
+	  <option class="item" value="+359"><i class="bg flag"></i>Bulgaria (+359)</option>
+	  <option class="item" value="+226"><i class="bf flag"></i>Burkina Faso (+226)</option>
+	  <option class="item" value="+257"><i class="bi flag"></i>Burundi (+257)</option>
+	  <option class="item" value="+855"><i class="kh flag"></i>Cambodia (+855)</option>
+	  <option class="item" value="+237"><i class="cm flag"></i>Cameroon (+237)</option>
+	  <option class="item" value="+1"><i class="ca flag"></i>Canada (+1)</option>
+	  <option class="item" value="+238"><i class="cv flag"></i>Cape Verde Islands (+238)</option>
+	  <option class="item" value="+1345"><i class="ky flag"></i>Cayman Islands (+1345)</option>
+	  <option class="item" value="+236"><i class="cf flag"></i>Central African Republic (+236)</option>
+	  <option class="item" value="+56"><i class="cl flag"></i>Chile (+56)</option>
+	  <option class="item" value="+86"><i class="cn flag"></i>China (+86)</option>
+	  <option class="item" value="+57"><i class="co flag"></i>Colombia (+57)</option>
+	  <option class="item" value="+269"><i class="km flag"></i>Comoros (+269)</option>
+	  <option class="item" value="+242"><i class="cg flag"></i>Congo (+242)</option>
+	  <option class="item" value="+682"><i class="ck flag"></i>Cook Islands (+682)</option>
+	  <option class="item" value="+506"><i class="cr flag"></i>Costa Rica (+506)</option>
+	  <option class="item" value="+385"><i class="hr flag"></i>Croatia (+385)</option>
+	  <option class="item" value="+53"><i class="cu flag"></i>Cuba (+53)</option>
+	  <option class="item" value="+90"><i class="cy flag"></i>Cyprus - North (+90)</option>
+	  <option class="item" value="+357"><i class="cy flag"></i>Cyprus - South (+357)</option>
+	  <option class="item" value="+420"><i class="cz flag"></i>Czech Republic (+420)</option>
+	  <option class="item" value="+45"><i class="dk flag"></i>Denmark (+45)</option>
+	  <option class="item" value="+253"><i class="dj flag"></i>Djibouti (+253)</option>
+	  <option class="item" value="+1809"><i class="dm flag"></i>Dominica (+1809)</option>
+	  <option class="item" value="+1809"><i class="do flag"></i>Dominican Republic (+1809)</option>
+	  <option class="item" value="+593"><i class="ec flag"></i>Ecuador (+593)</option>
+	  <option class="item" value="+20"><i class="eg flag"></i>Egypt (+20)</option>
+	  <option class="item" value="+503"><i class="sv flag"></i>El Salvador (+503)</option>
+	  <option class="item" value="+240"><i class="gq flag"></i>Equatorial Guinea (+240)</option>
+	  <option class="item" value="+291"><i class="er flag"></i>Eritrea (+291)</option>
+	  <option class="item" value="+372"><i class="ee flag"></i>Estonia (+372)</option>
+	  <option class="item" value="+251"><i class="et flag"></i>Ethiopia (+251)</option>
+	  <option class="item" value="+500"><i class="fk flag"></i>Falkland Islands (+500)</option>
+	  <option class="item" value="+298"><i class="fo flag"></i>Faroe Islands (+298)</option>
+	  <option class="item" value="+679"><i class="fj flag"></i>Fiji (+679)</option>
+	  <option class="item" value="+358"><i class="fi flag"></i>Finland (+358)</option>
+	  <option class="item" value="+33"><i class="fr flag"></i>France (+33)</option>
+	  <option class="item" value="+594"><i class="gf flag"></i>French Guiana (+594)</option>
+	  <option class="item" value="+689"><i class="pf flag"></i>French Polynesia (+689)</option>
+	  <option class="item" value="+241"><i class="ga flag"></i>Gabon (+241)</option>
+	  <option class="item" value="+220"><i class="gm flag"></i>Gambia (+220)</option>
+	  <option class="item" value="+7880"><i class="ge flag"></i>Georgia (+7880)</option>
+	  <option class="item" value="+49"><i class="de flag"></i>Germany (+49)</option>
+	  <option class="item" value="+233"><i class="gh flag"></i>Ghana (+233)</option>
+	  <option class="item" value="+350"><i class="gi flag"></i>Gibraltar (+350)</option>
+	  <option class="item" value="+30"><i class="gr flag"></i>Greece (+30)</option>
+	  <option class="item" value="+299"><i class="gl flag"></i>Greenland (+299)</option>
+	  <option class="item" value="+1473"><i class="gd flag"></i>Grenada (+1473)</option>
+	  <option class="item" value="+590"><i class="gp flag"></i>Guadeloupe (+590)</option>
+	  <option class="item" value="+671"><i class="gu flag"></i>Guam (+671)</option>
+	  <option class="item" value="+502"><i class="gt flag"></i>Guatemala (+502)</option>
+	  <option class="item" value="+224"><i class="gn flag"></i>Guinea (+224)</option>
+	  <option class="item" value="+245"><i class="gw flag"></i>Guinea - Bissau (+245)</option>
+	  <option class="item" value="+592"><i class="gy flag"></i>Guyana (+592)</option>
+	  <option class="item" value="+509"><i class="ht flag"></i>Haiti (+509)</option>
+	  <option class="item" value="+504"><i class="hn flag"></i>Honduras (+504)</option>
+	  <option class="item" value="+852"><i class="hk flag"></i>Hong Kong (+852)</option>
+	  <option class="item" value="+36"><i class="hu flag"></i>Hungary (+36)</option>
+	  <option class="item" value="+354"><i class="is flag"></i>Iceland (+354)</option>
+	  <option class="item" value="+91"><i class="in flag"></i>India (+91)</option>
+	  <option class="item" value="+62"><i class="id flag"></i>Indonesia (+62)</option>
+	  <option class="item" value="+964"><i class="iq flag"></i>Iraq (+964)</option>
+	  <option class="item" value="+98"><i class="ir flag"></i>Iran (+98)</option>
+	  <option class="item" value="+353"><i class="ie flag"></i>Ireland (+353)</option>
+	  <option class="item" value="+972"><i class="il flag"></i>Israel (+972)</option>
+	  <option class="item" value="+39"><i class="it flag"></i>Italy (+39)</option>
+	  <option class="item" value="+1876"><i class="jm flag"></i>Jamaica (+1876)</option>
+	  <option class="item" value="+81"><i class="jp flag"></i>Japan (+81)</option>
+	  <option class="item" value="+962"><i class="jo flag"></i>Jordan (+962)</option>
+	  <option class="item" value="+7"><i class="kz flag"></i>Kazakhstan (+7)</option>
+	  <option class="item" value="+254"><i class="ke flag"></i>Kenya (+254)</option>
+	  <option class="item" value="+686"><i class="ki flag"></i>Kiribati (+686)</option>
+	  <option class="item" value="+850"><i class="kp flag"></i>Korea - North (+850)</option>
+	  <option class="item" value="+82"><i class="kr flag"></i>Korea - South (+82)</option>
+	  <option class="item" value="+965"><i class="kw flag"></i>Kuwait (+965)</option>
+	  <option class="item" value="+996"><i class="kg flag"></i>Kyrgyzstan (+996)</option>
+	  <option class="item" value="+856"><i class="la flag"></i>Laos (+856)</option>
+	  <option class="item" value="+371"><i class="lv flag"></i>Latvia (+371)</option>
+	  <option class="item" value="+961"><i class="lb flag"></i>Lebanon (+961)</option>
+	  <option class="item" value="+266"><i class="ls flag"></i>Lesotho (+266)</option>
+	  <option class="item" value="+231"><i class="lr flag"></i>Liberia (+231)</option>
+	  <option class="item" value="+218"><i class="ly flag"></i>Libya (+218)</option>
+	  <option class="item" value="+417"><i class="li flag"></i>Liechtenstein (+417)</option>
+	  <option class="item" value="+370"><i class="lt flag"></i>Lithuania (+370)</option>
+	  <option class="item" value="+352"><i class="lu flag"></i>Luxembourg (+352)</option>
+	  <option class="item" value="+853"><i class="mo flag"></i>Macao (+853)</option>
+	  <option class="item" value="+389"><i class="mk flag"></i>Macedonia (+389)</option>
+	  <option class="item" value="+261"><i class="mg flag"></i>Madagascar (+261)</option>
+	  <option class="item" value="+265"><i class="mw flag"></i>Malawi (+265)</option>
+	  <option class="item" value="+60"><i class="my flag"></i>Malaysia (+60)</option>
+	  <option class="item" value="+960"><i class="mv flag"></i>Maloptiones (+960)</option>
+	  <option class="item" value="+223"><i class="ml flag"></i>Mali (+223)</option>
+	  <option class="item" value="+356"><i class="mt flag"></i>Malta (+356)</option>
+	  <option class="item" value="+692"><i class="mh flag"></i>Marshall Islands (+692)</option>
+	  <option class="item" value="+596"><i class="mq flag"></i>Martinique (+596)</option>
+	  <option class="item" value="+222"><i class="mr flag"></i>Mauritania (+222)</option>
+	  <option class="item" value="+269"><i class="yt flag"></i>Mayotte (+269)</option>
+	  <option class="item" value="+52"><i class="mx flag"></i>Mexico (+52)</option>
+	  <option class="item" value="+691"><i class="fm flag"></i>Micronesia (+691)</option>
+	  <option class="item" value="+373"><i class="md flag"></i>Moldova (+373)</option>
+	  <option class="item" value="+377"><i class="mc flag"></i>Monaco (+377)</option>
+	  <option class="item" value="+976"><i class="mn flag"></i>Mongolia (+976)</option>
+	  <option class="item" value="+1664"><i class="ms flag"></i>Montserrat (+1664)</option>
+	  <option class="item" value="+212"><i class="ma flag"></i>Morocco (+212)</option>
+	  <option class="item" value="+258"><i class="mz flag"></i>Mozambique (+258)</option>
+	  <option class="item" value="+95"><i class="mn flag"></i>Myanmar (+95)</option>
+	  <option class="item" value="+264"><i class="na flag"></i>Namibia (+264)</option>
+	  <option class="item" value="+674"><i class="nr flag"></i>Nauru (+674)</option>
+	  <option class="item" value="+977"><i class="np flag"></i>Nepal (+977)</option>
+	  <option class="item" value="+31"><i class="nl flag"></i>Netherlands (+31)</option>
+	  <option class="item" value="+687"><i class="nc flag"></i>New Caledonia (+687)</option>
+	  <option class="item" value="+505"><i class="ni flag"></i>Nicaragua (+505)</option>
+	  <option class="item" value="+227"><i class="ne flag"></i>Niger (+227)</option>
+	  <option class="item" value="+234"><i class="ng flag"></i>Nigeria (+234)</option>
+	  <option class="item" value="+683"><i class="nu flag"></i>Niue (+683)</option>
+	  <option class="item" value="+672"><i class="nf flag"></i>Norfolk Islands (+672)</option>
+	  <option class="item" value="+670"><i class="np flag"></i>Northern Marianas (+670)</option>
+	  <option class="item" value="+47"><i class="no flag"></i>Norway (+47)</option>
+	  <option class="item" value="+968"><i class="om flag"></i>Oman (+968)</option>
+	  <option class="item" value="+92"><i class="pk flag"></i>Pakistan (+92)</option>
+	  <option class="item" value="+680"><i class="pw flag"></i>Palau (+680)</option>
+	  <option class="item" value="+507"><i class="pa flag"></i>Panama (+507)</option>
+	  <option class="item" value="+675"><i class="pg flag"></i>Papua New Guinea (+675)</option>
+	  <option class="item" value="+595"><i class="py flag"></i>Paraguay (+595)</option>
+	  <option class="item" value="+51"><i class="pe flag"></i>Peru (+51)</option>
+	  <option class="item" value="+63"><i class="ph flag"></i>Philippines (+63)</option>
+	  <option class="item" value="+48"><i class="pl flag"></i>Poland (+48)</option>
+	  <option class="item" value="+351"><i class="pt flag"></i>Portugal (+351)</option>
+	  <option class="item" value="+1787"><i class="pr flag"></i>Puerto Rico (+1787)</option>
+	  <option class="item" value="+974"><i class="qa flag"></i>Qatar (+974)</option>
+	  <option class="item" value="+262"><i class="re flag"></i>Reunion (+262)</option>
+	  <option class="item" value="+40"><i class="ro flag"></i>Romania (+40)</option>
+	  <option class="item" value="+7"><i class="ru flag"></i>Russia (+7)</option>
+	  <option class="item" value="+250"><i class="rw flag"></i>Rwanda (+250)</option>
+	  <option class="item" value="+378"><i class="sm flag"></i>San Marino (+378)</option>
+	  <option class="item" value="+239"><i class="st flag"></i>Sao Tome &amp; Principe (+239)</option>
+	  <option class="item" value="+966"><i class="sa flag"></i>Saudi Arabia (+966)</option>
+	  <option class="item" value="+221"><i class="sn flag"></i>Senegal (+221)</option>
+	  <option class="item" value="+381"><i class="cs flag"></i>Serbia (+381)</option>
+	  <option class="item" value="+248"><i class="sc flag"></i>Seychelles (+248)</option>
+	  <option class="item" value="+232"><i class="sl flag"></i>Sierra Leone (+232)</option>
+	  <option class="item" value="+65"><i class="sg flag"></i>Singapore (+65)</option>
+	  <option class="item" value="+421"><i class="sk flag"></i>Slovak Republic (+421)</option>
+	  <option class="item" value="+386"><i class="si flag"></i>Slovenia (+386)</option>
+	  <option class="item" value="+677"><i class="sb flag"></i>Solomon Islands (+677)</option>
+	  <option class="item" value="+252"><i class="so flag"></i>Somalia (+252)</option>
+	  <option class="item" value="+27"><i class="za flag"></i>South Africa (+27)</option>
+	  <option class="item" value="+34"><i class="es flag"></i>Spain (+34)</option>
+	  <option class="item" value="+94"><i class="lk flag"></i>Sri Lanka (+94)</option>
+	  <option class="item" value="+290"><i class="sh flag"></i>St. Helena (+290)</option>
+	  <option class="item" value="+1869"><i class="kn flag"></i>St. Kitts (+1869)</option>
+	  <option class="item" value="+1758"><i class="sc flag"></i>St. Lucia (+1758)</option>
+	  <option class="item" value="+597"><i class="sr flag"></i>Suriname (+597)</option>
+	  <option class="item" value="+249"><i class="sd flag"></i>Sudan (+249)</option>
+	  <option class="item" value="+268"><i class="sz flag"></i>Swaziland (+268)</option>
+	  <option class="item" value="+46"><i class="se flag"></i>Sweden (+46)</option>
+	  <option class="item" value="+41"><i class="ch flag"></i>Switzerland (+41)</option>
+	  <option class="item" value="+963"><i class="sy flag"></i>Syria (+963)</option>
+	  <option class="item" value="+886"><i class="tw flag"></i>Taiwan (+886)</option>
+	  <option class="item" value="+992"><i class="tj flag"></i>Tajikistan (+992)</option>
+	  <option class="item" value="+66"><i class="th flag"></i>Thailand (+66)</option>
+	  <option class="item" value="+228"><i class="tg flag"></i>Togo (+228)</option>
+	  <option class="item" value="+676"><i class="to flag"></i>Tonga (+676)</option>
+	  <option class="item" value="+1868"><i class="tt flag"></i>Trinidad &amp; Tobago (+1868)</option>
+	  <option class="item" value="+216"><i class="tn flag"></i>Tunisia (+216)</option>
+	  <option class="item" value="+90"><i class="tr flag"></i>Turkey (+90)</option>
+	  <option class="item" value="+993"><i class="tm flag"></i>Turkmenistan (+993)</option>
+	  <option class="item" value="+1649"><i class="tc flag"></i>Turks &amp; Caicos Islands (+1649)</option>
+	  <option class="item" value="+688"><i class="tv flag"></i>Tuvalu (+688)</option>
+	  <option class="item" value="+256"><i class="ug flag"></i>Uganda (+256)</option>
+	  <option class="item" value="+380"><i class="ua flag"></i>Ukraine (+380)</option>
+	  <option class="item" value="+971"><i class="ae flag"></i>United Arab Emirates (+971)</option>
+	  <option class="item" value="+598"><i class="uy flag"></i>Uruguay (+598)</option>
+	  <option class="item" value="+998"><i class="uz flag"></i>Uzbekistan (+998)</option>
+	  <option class="item" value="+678"><i class="vu flag"></i>Vanuatu (+678)</option>
+	  <option class="item" value="+379"><i class="va flag"></i>Vatican City (+379)</option>
+	  <option class="item" value="+58"><i class="ve flag"></i>Venezuela (+58)</option>
+	  <option class="item" value="+84"><i class="vn flag"></i>Vietnam (+84)</option>
+	  <option class="item" value="+1"><i class="vg flag"></i>Virgin Islands - British (+1)</option>
+	  <option class="item" value="+1"><i class="vi flag"></i>Virgin Islands - US (+1)</option>
+	  <option class="item" value="+681"><i class="wf flag"></i>Wallis &amp; Futuna (+681)</option>
+	  <option class="item" value="+969"><i class="ye flag"></i>Yemen (North)(+969)</option>
+	  <option class="item" value="+967"><i class="ye flag"></i>Yemen (South)(+967)</option>
+	  <option class="item" value="+260"><i class="zm flag"></i>Zambia (+260)</option>
+	  <option class="item" value="+263"><i class="zw flag"></i>Zimbabwe (+263)</option>
+	  </select>
+
+	   <input name="mobile_no" type="integer" required>
+
+	   <input name="msg" type="text" required>
+
+	   <input type="Submit" value="submit" >
+	  </form>
+
+	  {% if error %}
+	  <p><b>Alert:</b> {{ error }}</p>
+	  {% endif %}
