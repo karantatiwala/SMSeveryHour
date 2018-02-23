@@ -127,6 +127,6 @@ def sendSMS(request):
 def msgLogs(request, numb):
 	obj = MessageLog.objects.filter(number=numb)
 	if len(obj) == 0:
-		return "abcd"
+		return HttpResponse("abcd")
 	else:
 		return render(request, 'logs.html', {'obj':obj})
