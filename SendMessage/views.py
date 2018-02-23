@@ -18,7 +18,7 @@ import atexit
 import urllib2
 import json
 from phonenumbers.phonenumberutil import region_code_for_country_code
-# from models import MessageLog
+from models import MessageLog
 
 account_sid = "ACdef11a02e9ad8742733e867273c87286"
 auth_token = "e3de76780ef4f40d326f8480c67dc5c9"
@@ -76,14 +76,14 @@ def twilioSMS(k,msg, count):
 				count = count +1
 				print count
 				print "hello"
-				# obj = MessageLog(number=k, dateField=local_date.date(), timeField=local_date.time(), status="Failed or Undelivered")
-				# obj.save()
+				obj = MessageLog(number=k, dateField=local_date.date(), timeField=local_date.time(), status="Failed or Undelivered")
+				obj.save()
 				# enter databse
 				twilioSMS(k,msg, count)	
 		else:
 			print "Night time"
-			# obj = MessageLog(number=k, dateField=local_date.date(), timeField=local_date.time(), status="Night Time")
-			# obj.save()
+			obj = MessageLog(number=k, dateField=local_date.date(), timeField=local_date.time(), status="Night Time")
+			obj.save()
 	except:
 	# 	# time.sleep(2) #some error
 	# 	# twilioSMS(k,msg)
@@ -125,5 +125,5 @@ def sendSMS(request):
 
 
 def msgLogs(request, numb):
-	# obj = MessageLog.objects.filter(number=numb)
-	return render(request, 'logs.html')
+	obj = MessageLog.objects.filter(number=numb)
+	return render(request, 'logs.html', {'obj':obj})
