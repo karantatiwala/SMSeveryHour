@@ -1,0 +1,5 @@
+  {% if obj %}
+	  	{% for i in obj %}
+	  		{{i.number}} ---- {{i.dateField}} {{i.timeField}}---- {{i.status}}
+	  	{% endfor %}
+	  {% endif %}
