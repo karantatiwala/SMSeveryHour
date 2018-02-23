@@ -18,7 +18,7 @@ import atexit
 import urllib2
 import json
 from phonenumbers.phonenumberutil import region_code_for_country_code
-from models import MessageLog
+# from models import MessageLog
 
 account_sid = "ACdef11a02e9ad8742733e867273c87286"
 auth_token = "e3de76780ef4f40d326f8480c67dc5c9"
