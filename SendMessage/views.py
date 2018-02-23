@@ -76,14 +76,14 @@ def twilioSMS(k,msg, count):
 				count = count +1
 				print count
 				print "hello"
-				obj = MessageLog(number=k, dateField=local_date.date(), timeField=local_date.time(), status="Failed or Undelivered")
-				obj.save()
+				# obj = MessageLog(number=k, dateField=local_date.date(), timeField=local_date.time(), status="Failed or Undelivered")
+				# obj.save()
 				# enter databse
 				twilioSMS(k,msg, count)	
 		else:
 			print "Night time"
-			obj = MessageLog(number=k, dateField=local_date.date(), timeField=local_date.time(), status="Night Time")
-			obj.save()
+			# obj = MessageLog(number=k, dateField=local_date.date(), timeField=local_date.time(), status="Night Time")
+			# obj.save()
 	except:
 	# 	# time.sleep(2) #some error
 	# 	# twilioSMS(k,msg)
@@ -124,5 +124,5 @@ def sendSMS(request):
 
 
 def msgLogs(request, numb):
-	obj = MessageLog.objects.filter(number=numb)
-	return render(request, 'logs.html', {'obj':obj})
+	# obj = MessageLog.objects.filter(number=numb)
+	return render(request, 'logs.html')
