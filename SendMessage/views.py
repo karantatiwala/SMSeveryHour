@@ -110,7 +110,7 @@ def sendSMS(request):
 			# twilioSMS(k,msg)
 			scheduler = BackgroundScheduler()
 			count = 0
-			scheduler.add_job(twilioSMS, 'interval', minutes=60, args=(k,msg,count))
+			scheduler.add_job(twilioSMS, 'interval', minutes=20, args=(k,msg,count))
 			scheduler.start()
 			atexit.register(lambda: scheduler.shutdown(wait=False))
 			# twilioSMS(k,msg, count)
