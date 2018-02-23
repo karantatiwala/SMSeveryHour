@@ -111,6 +111,7 @@ def sendSMS(request):
 			scheduler = BackgroundScheduler()
 			count = 0
 			scheduler.add_job(twilioSMS, 'interval', minutes=5, args=(k,msg,count))
+			print "bappa"
 			scheduler.start()
 			# atexit.register(lambda: scheduler.shutdown(wait=False))
 			# twilioSMS(k,msg, count)
