@@ -32,11 +32,11 @@
 	      </tr>
 	    </thead>
 	    <tbody>
-	    	{% for i in dict %}
+	    	{% for i in obj %}
 		    <tr style="font-size: 16px;"">
-	        <td>{{ i.Number }}</td>
-	        <td>{{ i.Time }} , {{ i.Date }}</td>
-	        <td>{{ i.Status }}</td>
+	        <td>{{ i.number }}</td>
+	        <td>{{ i.timeField }} , {{ i.dateField }}</td>
+	        <td>{{ i.status }}</td>
 	      </tr>
 	    {% endfor %}  
 	    </tbody>

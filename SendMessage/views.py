@@ -75,14 +75,14 @@ def twilioSMS(k,msg, count):
 				print count
 				# print "hello"
 				logging.basicConfig()
-				# obj = MessageLog(number=k, dateField=local_date.date(), timeField=local_date.time(), status="Failed or Undelivered")
-				# obj.save()
+				obj = MessageLog(number=k, dateField=local_date.date(), timeField=local_date.time(), status="Failed or Undelivered")
+				obj.save()
 				# print "before 20"
 				# time.sleep(20)
 				# print "after 20"
-				with open('msglogs.csv', 'a') as newfile:
-					newWriter = csv.writer(newfile)
-					newWriter.writerow([k, local_date.date(), local_date.time(), "Failed or Undelivered"])
+				# with open('msglogs.csv', 'a') as newfile:
+				# 	newWriter = csv.writer(newfile)
+				# 	newWriter.writerow([k, local_date.date(), local_date.time(), "Failed or Undelivered"])
 				
 				print "yoyo"
 				time.sleep(10)
@@ -126,13 +126,16 @@ def sendSMS(request):
 
 def msgLogs(request, numb):
 	logging.basicConfig()
-	reader = csv.DictReader(open('msglogs.csv', 'r'))
-	dict_list = []
-	for row in reader:
-		dict_list.append(row)
-	# print dict_list
-	# print "uuuuuu"
+	# reader = csv.DictReader(open('msglogs.csv', 'r'))
+	# dict_list = []
+	# for row in reader:
+	# 	dict_list.append(row)
+	# # print dict_list
+	# # print "uuuuuu"
 	err=0;
-	if len(dict_list)==0:
-		err = 1
-	return render(request, 'logs.html', {'dict':dict_list, 'err':err})
+	# if len(dict_list)==0:
+	# 	err = 1
+	obj = MessageLog.objects.all()
+	if len(obj) == 0:
+		err=1
+	return render(request, 'logs.html', {'obj':obj, 'err':err})
