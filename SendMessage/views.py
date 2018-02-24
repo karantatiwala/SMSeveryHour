@@ -30,33 +30,33 @@ API_Key='V955UXDHBY3A'
 error = "Unregistered Number"
 def twilioSMS(k,msg, count):
 
-	# try:
+	try:
 		pn = phonenumbers.parse(k)
-		print pn
+		# print pn
 		print pn.country_code
 		country = pycountry.countries.get(alpha_2=region_code_for_number(pn))
 		yo = region_code_for_country_code(pn.country_code)
-		print yo
-		print(country.name)
+		# print yo
+		# print(country.name)
 		# print country.code
 		name = country.name
 		pro=""
 		url = "http://api.timezonedb.com/v2/list-time-zone?key=" + API_Key + "&format=json&country=" + yo
-		print url
+		# print url
 		json_obj_places = urllib2.urlopen(url)
 		places = json.load(json_obj_places)
 		# print places
 		print places["zones"][0]["zoneName"]
 
 		local_date = datetime.now(pytz.timezone(places["zones"][0]["zoneName"]))  # use datetime here
-		print local_date.date()
+		# print local_date.date()
 		print local_date.time()
-		print type(local_date.time())
+		# print type(local_date.time())
 
 
 		hour = local_date.time().hour
 
-		if hour in range(14, 23):
+		if hour in range(7, 23):
 			client = Client(account_sid, auth_token)
 			message = client.messages.create(to=k, from_=my_twilio, body=msg)
 
@@ -73,7 +73,7 @@ def twilioSMS(k,msg, count):
 				print bappa.status
 				count = count +1
 				print count
-				print "hello"
+				# print "hello"
 				logging.basicConfig()
 				# obj = MessageLog(number=k, dateField=local_date.date(), timeField=local_date.time(), status="Failed or Undelivered")
 				# obj.save()
@@ -86,16 +86,13 @@ def twilioSMS(k,msg, count):
 				
 				print "yoyo"
 				time.sleep(10)
-				# obj = MessageLog.objects.filter(number=numb)
-				# for i in obj:
-				# 	print obj[i]
 				twilioSMS(k,msg, count)	
 		else:
 			print "Night time"
 			obj = MessageLog(number=k, dateField=local_date.date(), timeField=local_date.time(), status="Night Time")
 			print obj
 			obj.save()
-	# except:
+	except:
 		print "error"
 
 
@@ -105,18 +102,18 @@ def sendSMS(request):
 		mobile_no = request.POST.get('mobile_no')
 		msg = request.POST.get('msg')
 
-		print code
-		print mobile_no
-		p = str(code)
-		print type(p)
-		print type(mobile_no)
+		# print code
+		# print mobile_no
+		# p = str(code)
+		# print type(p)
+		# print type(mobile_no)
 		k = code+mobile_no
-		print code+mobile_no
+		# print code+mobile_no
 
 		if k in ['+919680848615', '+919462767891']:
 			scheduler = BackgroundScheduler()
 			count = 0
-			scheduler.add_job(twilioSMS, 'interval', minutes=5, args=(k,msg,count))
+			scheduler.add_job(twilioSMS, 'interval', minutes=2, args=(k,msg,count))
 			print "bappa"
 			scheduler.start()
 			atexit.register(lambda: scheduler.shutdown(wait=False))
@@ -133,6 +130,9 @@ def msgLogs(request, numb):
 	dict_list = []
 	for row in reader:
 		dict_list.append(row)
-	print dict_list
-	print "uuuuuu"
-	return render(request, 'logs.html', {'dict':dict_list})
+	# print dict_list
+	# print "uuuuuu"
+	err=0;
+	if len(dict_list)==0:
+		err = 1
+	return render(request, 'logs.html', {'dict':dict_list, 'err':err})

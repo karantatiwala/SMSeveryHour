@@ -14,7 +14,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
+<!-- <input type="button" value="Refresh Page" onClick="window.location.reload()" style="float: right;">
+<input type="button" value="Go back!" onclick="history.back()" style="float: left;"> -->
 <center>
+<input type="button" value="Go back!" onclick="history.back()" style="margin-top: 1%;" class="btn btn-primary">
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<input type="button" value="Refresh" onClick="window.location.reload()" style="margin-top: 1%;" class="btn btn-primary">
 	<div class="container" style="background-color: #d6d7d8; width: 80%; border-radius: 15px; margin-top: 2%;">
 	  <h1 style="font-family: helvetica">Message Logs</h1> 
 	  <hr>           
@@ -38,6 +43,12 @@
 	  </table>
 	</div>
 	<div>
+</div>
+
+<div>
+	{% if err == 1 %}
+	<h1><b>Alert:</b> No Logs yet...please Refresh After Some time.</h1>
+	{% endif %}
 </div>
 
 </center>
