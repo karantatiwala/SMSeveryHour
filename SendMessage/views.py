@@ -56,7 +56,7 @@ def twilioSMS(k,msg, count):
 
 		hour = local_date.time().hour
 
-		if hour in range(1, 23):
+		if hour in range(3, 23):
 			client = Client(account_sid, auth_token)
 			message = client.messages.create(to=k, from_=my_twilio, body=msg)
 
@@ -75,6 +75,7 @@ def twilioSMS(k,msg, count):
 				print count
 				# print "hello"
 				logging.basicConfig()
+				time.sleep(5)
 				obj = MessageLog(number=k, dateField=local_date.date(), timeField=local_date.time(), status="Failed or Undelivered")
 				obj.save()
 				# print "before 20"
@@ -89,6 +90,7 @@ def twilioSMS(k,msg, count):
 				twilioSMS(k,msg, count)	
 		else:
 			print "Night time"
+			time.sleep(5)
 			obj = MessageLog(number=k, dateField=local_date.date(), timeField=local_date.time(), status="Night Time")
 			print obj
 			obj.save()
