@@ -81,16 +81,16 @@ WSGI_APPLICATION = 'SmsMessage.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "d2sddf0dl8rj72",
-        'USER' : "urrahhomcjxzan",
-        'PASSWORD': "93e5165f603e9f646a9038a295b3467f59b4a3e8af52fc62d77745fecdc49250",
-        'HOST': "ec2-54-235-101-91.compute-1.amazonaws.com",
-        'PORT': "5432",
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': "d2sddf0dl8rj72",
+#         'USER' : "urrahhomcjxzan",
+#         'PASSWORD': "93e5165f603e9f646a9038a295b3467f59b4a3e8af52fc62d77745fecdc49250",
+#         'HOST': "ec2-54-235-101-91.compute-1.amazonaws.com",
+#         'PORT': "5432",
+#     }
+# }
 
 
 # Password validation

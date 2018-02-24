@@ -1,8 +1,25 @@
-	 <form action="/send/" method="post">{% csrf_token %}
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SMSeveryHour</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 
-	 <select name="country_code">
-	  <option class="item" value="+64"><i class="nz flag"></i>New Zealand (+64)</option>
-	  <option class="item" value="+61"><i class="au flag"></i>Australia (+61)</option>
+<div class="container">
+<center>
+	<div class="number-box form-wrap" style="background-color: #d6d7d8; width: 40%; float: left; border-radius: 10px; margin-top: 7%">
+
+	<h1 style="color: #8B0000;">Start SMS Alert</h1>
+
+	 <form action="/send/" method="post">{% csrf_token %}
+	 <br>
+	 	<select name="country_code" class="input2">
+	  		<option class="item" value="+64"><i class="nz flag"></i>New Zealand (+64)</option>
+	  		<option class="item" value="+61"><i class="au flag"></i>Australia (+61)</option>
 	  <option class="item" value="+1"><i class="us flag"></i>USA (+1)</option>
 	  <option class="item" value="+44"><i class="gb flag"></i>UK (+44)</option>
 	  <!-- <option class="item disabled">Other Countries</option> -->
@@ -216,15 +233,111 @@
 	  <option class="item" value="+967"><i class="ye flag"></i>Yemen (South)(+967)</option>
 	  <option class="item" value="+260"><i class="zm flag"></i>Zambia (+260)</option>
 	  <option class="item" value="+263"><i class="zw flag"></i>Zimbabwe (+263)</option>
-	  </select>
-
-	   <input name="mobile_no" type="integer" required>
-
-	   <input name="msg" type="text" required>
-
-	   <input type="Submit" value="submit" >
-	  </form>
-
-	  {% if error %}
-	  <p><b>Alert:</b> {{ error }}</p>
+	  	</select>
+	   	<input class="input1" name="mobile_no" type="number" placeholder="Mobile No." required>
+	   	<br>
+	   	<br>
+	    <textarea cols="25" rows="6" class="input" name="msg" type="text" placeholder="Message.." required></textarea>
+		<input type="Submit" class="button" value="Send Message" >
+		<br>
+		 {% if error %}
+	  <h3><b>Alert:</b> {{ error }}</h3>
 	  {% endif %}
+		<br>
+		<br>
+	 </form>
+
+	 
+
+	 </div>
+	 </center>
+
+	  <div class="guidelines-box" style="background-color: #d6d7d8; width: 55%; float: right; border-radius: 10px; margin-top: 1%;">
+	  <h1 style="text-align: center;">Guidlines to Follow:</h1>
+	  <hr>
+	  <ul style="font-size: 18px; line-height: 30px; width: 97%">
+	  <li>Web Application is made to remind John his name as he is suffering Amnesia. The Web App will send a Text SMS every hour to remind him of his name (except the night hours considered as 10:00 PM to 7:00 AM).</li>
+	  <li>If the John wants to use this Web App, he should have his number verified on Twilio from the admin's account. Verification is done through an OTP.</li>
+	  <li>If the status of the message is Sent or Delivered after 1min of sending the message, the status is categorised as Delivered otherwise it is categorised as Failed or Undelivered and the message is sent again (Max 5 Times). Like if John's phone is switched off when the message was sent it will categorised as Sent message as John will recieve the message as he switches on his phone</li>
+	  <li>After entering the number, John will be redirected to Logs Information of Delivered, Undelivered</li>
+	  </ul>	
+	  <h4 style="float: right; padding-right: 20px;"> <b>Contact:</b><br>Name: Karan Tatiwala <br> Mobile No.: 9680848615
+	  </h4>	   	
+	  </div>
+
+</div>
+<style>
+  
+input {
+  color: #676767;
+  font: 16px/26px "Raleway", sans-serif; }
+
+/*body {
+  color: #666;
+
+  font: 16px/26px "Raleway", sans-serif; }*/
+.input1{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    color: inherit;
+    font-family: inherit;
+    /*padding: .8em 0 10px .8em;*/
+    border: 1px solid #909090;
+    border-radius: 5px;
+    outline: 0;
+    display: inline-block;
+    height: 45px;
+    /*margin: 0 0 .8em 0;*/
+    width: 45%;
+
+}
+.input2{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    color: inherit;
+    font-family: inherit;
+    /*padding: .8em 0 10px .8em;*/
+    border: 1px solid #909090;
+    border-radius: 5px;
+    outline: 0;
+    display: inline-block;
+    height: 45px;
+    /*margin: 0 0 .8em 0;*/
+    width: 32%;
+
+}
+
+
+.form-wrap {
+ 
+  /*width: 320px;*/
+}
+  .form-wrap form .input {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    color: inherit;
+    font-family: inherit;
+    padding: .8em 0 10px .8em;
+    border: 2px solid #909090;
+    outline: 0;
+    display: inline-block;
+    margin: 0 0 .8em 0;
+    width: 77%;
+    border-radius: 5px;
+ }
+  .form-wrap form .button {
+    width: 77%;
+    padding: .8em 0 10px .8em;
+    background-color: #8B0000;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    /*color: black;*/
+    cursor: pointer;
+    text-transform: uppercase; }
+ /*   .form-wrap form .button:hover {
+      color: white;
+      background-color: #8B0000; }*/
+</style>
+
+</html>

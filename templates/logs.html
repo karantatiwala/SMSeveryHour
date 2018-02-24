@@ -1,9 +1,46 @@
-  {% if obj %}
+<!--   {% if obj %}
 	  	{% for i in obj %}
 	  		{{i.number}} ---- {{i.dateField}} {{i.timeField}}---- {{i.status}}
 	  	{% endfor %}
-	  {% endif %}
+	  {% endif %} -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SMSeveryHour</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<center>
+	<div class="container" style="background-color: #d6d7d8; width: 80%; border-radius: 15px; margin-top: 2%;">
+	  <h1 style="font-family: helvetica">Message Logs</h1> 
+	  <hr>           
+	  <table class="table table-hover" id = "">
+	    <thead>
+	      <tr style="font-size: 18px;">
+	        <th>Number</th>
+	        <th>Date / Time</th>
+	        <th>Status</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	    	{% for i in dict %}
+		    <tr style="font-size: 16px;"">
+	        <td>{{ i.Number }}</td>
+	        <td>{{ i.Time }} , {{ i.Date }}</td>
+	        <td>{{ i.Status }}</td>
+	      </tr>
+	    {% endfor %}  
+	    </tbody>
+	  </table>
+	</div>
+	<div>
+</div>
+
+</center>
 
 
-
-	  <h1>YOYOYOY bappa</h1>
+</html>
