@@ -135,7 +135,7 @@ def msgLogs(request, numb):
 	err=0;
 	# if len(dict_list)==0:
 	# 	err = 1
-	obj = MessageLog.objects.all()
+	obj = MessageLog.objects.filter(number=numb).order_by("-timeField")
 	if len(obj) == 0:
 		err=1
 	return render(request, 'logs.html', {'obj':obj, 'err':err})
