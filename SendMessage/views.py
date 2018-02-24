@@ -56,11 +56,11 @@ def twilioSMS(k,msg, count):
 
 		hour = local_date.time().hour
 
-		if hour in range(7, 23):
+		if hour in range(1, 23):
 			client = Client(account_sid, auth_token)
 			message = client.messages.create(to=k, from_=my_twilio, body=msg)
 
-			time.sleep( 20 )
+			time.sleep( 60 )
 			print message.sid
 			bappa = client.messages(message.sid).fetch()
 
@@ -69,7 +69,7 @@ def twilioSMS(k,msg, count):
 
 			print "yoyo"
 
-			if bappa.status not in ["delivered"] and count<5:
+			if bappa.status not in ["delivered", "sent"] and count<5:
 				print bappa.status
 				count = count +1
 				print count
@@ -113,7 +113,7 @@ def sendSMS(request):
 		if k in ['+919680848615', '+919462767891']:
 			scheduler = BackgroundScheduler()
 			count = 0
-			scheduler.add_job(twilioSMS, 'interval', minutes=2, args=(k,msg,count))
+			scheduler.add_job(twilioSMS, 'interval', minutes=60, args=(k,msg,count))
 			print "bappa"
 			scheduler.start()
 			atexit.register(lambda: scheduler.shutdown(wait=False))
