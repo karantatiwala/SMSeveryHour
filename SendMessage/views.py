@@ -57,7 +57,7 @@ def twilioSMS(k,msg, count):
 
 		hour = local_date.time().hour
 
-		if hour in range(2, 5):
+		if hour in range(4, 7):
 			client = Client(account_sid, auth_token)
 			message = client.messages.create(to=k, from_=my_twilio, body=msg)
 
@@ -78,7 +78,7 @@ def twilioSMS(k,msg, count):
 				print count
 				# print "hello"
 				logging.basicConfig()
-				time.sleep(5)
+				time.sleep(2)
 				obj = MessageLog(number=k, dateField=local_date.date(), timeField=local_date.time(), status="Failed or Undelivered")
 				obj.save()
 				# l = k+".csv"
@@ -90,11 +90,11 @@ def twilioSMS(k,msg, count):
 				# 	newWriter.writerow([k, local_date.date(), local_date.time(), "Failed or Undelivered"])
 				
 				print "yoyo"
-				time.sleep(10)
+				time.sleep(5)
 				twilioSMS(k,msg, count)	
 		else:
 			print "Night time"
-			time.sleep(5)
+			time.sleep(2)
 			l = k+".csv"
 			print l
 			logging.basicConfig()
@@ -123,10 +123,10 @@ def sendSMS(request):
 		k = code+mobile_no
 		# print code+mobile_no
 
-		if k in ['+919680848615', '+919462767891']:
+		if k in ['+919680848615', '+919462767891', '+919925100879']:
 			scheduler = BackgroundScheduler()
 			count = 0
-			scheduler.add_job(twilioSMS, 'interval', minutes=20, args=(k,msg,count))
+			scheduler.add_job(twilioSMS, 'interval', minutes=10, args=(k,msg,count))
 			print "bappa"
 			scheduler.start()
 			atexit.register(lambda: scheduler.shutdown(wait=False))
