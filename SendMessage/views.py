@@ -56,11 +56,11 @@ def twilioSMS(k,msg, count):
 
 		hour = local_date.time().hour
 
-		if hour in range(14, 23):
+		if hour in range(16, 23):
 			client = Client(account_sid, auth_token)
 			message = client.messages.create(to=k, from_=my_twilio, body=msg)
 
-			time.sleep( 60 )
+			time.sleep( 40 )
 			print message.sid
 			bappa = client.messages(message.sid).fetch()
 
@@ -68,6 +68,8 @@ def twilioSMS(k,msg, count):
 			print(bappa.status)
 
 			print "yoyo"
+			l = k+".csv"
+			print l
 
 			if bappa.status not in ["delivered", "sent"] and count<5:
 				print bappa.status
@@ -76,14 +78,15 @@ def twilioSMS(k,msg, count):
 				# print "hello"
 				logging.basicConfig()
 				# time.sleep(5)
-				obj = MessageLog(number=k, dateField=local_date.date(), timeField=local_date.time(), status="Failed or Undelivered")
-				obj.save()
+				# obj = MessageLog(number=k, dateField=local_date.date(), timeField=local_date.time(), status="Failed or Undelivered")
+				# obj.save()
+				# l = k+".csv"
 				# print "before 20"
 				# time.sleep(20)
 				# print "after 20"
-				# with open('msglogs.csv', 'a') as newfile:
-				# 	newWriter = csv.writer(newfile)
-				# 	newWriter.writerow([k, local_date.date(), local_date.time(), "Failed or Undelivered"])
+				with open(l, 'a') as newfile:
+					newWriter = csv.writer(newfile)
+					newWriter.writerow([k, local_date.date(), local_date.time(), "Failed or Undelivered"])
 				
 				print "yoyo"
 				time.sleep(10)
@@ -91,10 +94,16 @@ def twilioSMS(k,msg, count):
 		else:
 			print "Night time"
 			time.sleep(5)
+			l = k+".csv"
+			print l
 			logging.basicConfig()
-			obj = MessageLog(number=k, dateField=local_date.date(), timeField=local_date.time(), status="Night Time")
-			print obj
-			obj.save()
+			# obj = MessageLog(number=k, dateField=local_date.date(), timeField=local_date.time(), status="Night Time")
+			# print obj
+			# obj.save()
+			with open(l, 'a') as newfile:
+				newWriter = csv.writer(newfile)
+				newWriter.writerow([k, local_date.date(), local_date.time(), "Night Time"])
+			print "bappa"
 	except:
 		print "error"
 
@@ -116,10 +125,16 @@ def sendSMS(request):
 		if k in ['+919680848615', '+919462767891']:
 			scheduler = BackgroundScheduler()
 			count = 0
-			scheduler.add_job(twilioSMS, 'interval', minutes=40, args=(k,msg,count))
+			scheduler.add_job(twilioSMS, 'interval', minutes=25, args=(k,msg,count))
 			print "bappa"
 			scheduler.start()
 			atexit.register(lambda: scheduler.shutdown(wait=False))
+
+			l= k+".csv"
+			print l
+			with open(l, "w") as initial:
+				firstWriter = csv.writer(initial)
+				firstWriter.writerow(["number", "dateField", "timeField", "status"])
 
 			return HttpResponseRedirect(reverse('msgLogs', args=(str(k), )))
 
@@ -129,16 +144,19 @@ def sendSMS(request):
 
 def msgLogs(request, numb):
 	logging.basicConfig()
-	# reader = csv.DictReader(open('msglogs.csv', 'r'))
-	# dict_list = []
-	# for row in reader:
-	# 	dict_list.append(row)
-	# # print dict_list
-	# # print "uuuuuu"
+	l = numb + ".csv"
+	print l
+	reader = csv.DictReader(open(l, 'r'))
+	obj = []
+	for row in reader:
+		print "uuu"
+		obj.append(row)
+	print obj
+	# print "uuuuuu"
 	err=0;
-	# if len(dict_list)==0:
-	# 	err = 1
-	obj = MessageLog.objects.filter(number=numb).order_by("-timeField")
-	if len(obj) == 0:
-		err=1
+	if len(obj)==0:
+		err = 1
+	# obj = MessageLog.objects.filter(number=numb).order_by("-timeField")
+	# if len(obj) == 0:
+	# 	err=1
 	return render(request, 'logs.html', {'obj':obj, 'err':err})
