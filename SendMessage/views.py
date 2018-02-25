@@ -126,7 +126,7 @@ def sendSMS(request):
 		if k in ['+919680848615', '+919462767891']:
 			scheduler = BackgroundScheduler()
 			count = 0
-			scheduler.add_job(twilioSMS, 'interval', minutes=6, args=(k,msg,count))
+			scheduler.add_job(twilioSMS, 'interval', minutes=4, args=(k,msg,count))
 			print "bappa"
 			scheduler.start()
 			atexit.register(lambda: scheduler.shutdown(wait=False))
