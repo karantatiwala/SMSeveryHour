@@ -31,32 +31,33 @@ API_Key='V955UXDHBY3A'
 error = "Unregistered Number"
 def twilioSMS(k,msg, count):
 
+	
+	pn = phonenumbers.parse(k)
+	# print pn
+	print pn.country_code
+	country = pycountry.countries.get(alpha_2=region_code_for_number(pn))
+	yo = region_code_for_country_code(pn.country_code)
+	# print yo
+	# print(country.name)
+	# print country.code
+	name = country.name
+	pro=""
+	url = "http://api.timezonedb.com/v2/list-time-zone?key=" + API_Key + "&format=json&country=" + yo
+	# print url
+	json_obj_places = urllib2.urlopen(url)
+	places = json.load(json_obj_places)
+	# print places
+	print places["zones"][0]["zoneName"]
+
+	local_date = datetime.now(pytz.timezone(places["zones"][0]["zoneName"]))  # use datetime here
+	# print local_date.date()
+	print local_date.time()
+	# print type(local_date.time())
+
+
+	hour = local_date.time().hour
+
 	try:
-		pn = phonenumbers.parse(k)
-		# print pn
-		print pn.country_code
-		country = pycountry.countries.get(alpha_2=region_code_for_number(pn))
-		yo = region_code_for_country_code(pn.country_code)
-		# print yo
-		# print(country.name)
-		# print country.code
-		name = country.name
-		pro=""
-		url = "http://api.timezonedb.com/v2/list-time-zone?key=" + API_Key + "&format=json&country=" + yo
-		# print url
-		json_obj_places = urllib2.urlopen(url)
-		places = json.load(json_obj_places)
-		# print places
-		print places["zones"][0]["zoneName"]
-
-		local_date = datetime.now(pytz.timezone(places["zones"][0]["zoneName"]))  # use datetime here
-		# print local_date.date()
-		print local_date.time()
-		# print type(local_date.time())
-
-
-		hour = local_date.time().hour
-
 		if hour in range(12, 15):
 			client = Client(account_sid, auth_token)
 			message = client.messages.create(to=k, from_=my_twilio, body=msg)
@@ -106,6 +107,9 @@ def twilioSMS(k,msg, count):
 			# 	newWriter.writerow([k, local_date.date(), local_date.time(), "Night Time"])
 			print "bappa"
 	except:
+		print "yo bappa"
+		obj = MessageLog(number=k, dateField=local_date.date(), timeField=local_date.time(), status="Not Sent")
+		obj.save()
 		print "error"
 
 
@@ -126,7 +130,7 @@ def sendSMS(request):
 		if k in ['+919680848615', '+919462767891', '+919925100879']:
 			scheduler = BackgroundScheduler()
 			count = 0
-			scheduler.add_job(twilioSMS, 'interval', minutes=60, args=(k,msg,count))
+			scheduler.add_job(twilioSMS, 'interval', minutes=30, args=(k,msg,count))
 			print "bappa"
 			scheduler.start()
 			atexit.register(lambda: scheduler.shutdown(wait=False))
