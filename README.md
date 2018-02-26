@@ -30,4 +30,5 @@ This application demonstates a simple Web Application based on [Django Framework
 `python manage.py makemigrations` <br>
 `python manage.py migrate` <br>
 9. Running the Server <br>
-`python manage.py runserver`
+`python manage.py runserver` <br>
+Open localhost on your browser  `127.0.0.1:8000` <br>
