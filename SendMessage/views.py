@@ -58,7 +58,7 @@ def twilioSMS(k,msg, count):
 	hour = local_date.time().hour
 
 	try:
-		if hour in range(12, 15):
+		if hour in range(15, 17):
 			client = Client(account_sid, auth_token)
 			message = client.messages.create(to=k, from_=my_twilio, body=msg)
 
