@@ -21,7 +21,6 @@ from phonenumbers.phonenumberutil import region_code_for_country_code
 from models import MessageLog
 import csv
 import logging
-import pickle
 
 account_sid = "ACdef11a02e9ad8742733e867273c87286"
 auth_token = "e3de76780ef4f40d326f8480c67dc5c9"
@@ -58,7 +57,7 @@ def twilioSMS(k,msg, count):
 	hour = local_date.time().hour
 
 	try:
-		if hour in range(15, 17):
+		if hour in range(18, 21):
 			client = Client(account_sid, auth_token)
 			message = client.messages.create(to=k, from_=my_twilio, body=msg)
 
@@ -133,7 +132,7 @@ def sendSMS(request):
 			scheduler.add_job(twilioSMS, 'interval', minutes=30, args=(k,msg,count))
 			print "bappa"
 			scheduler.start()
-			atexit.register(lambda: scheduler.shutdown(wait=False))
+			# atexit.register(lambda: scheduler.shutdown(wait=False))
 
 			l= k+".csv"
 			print l
