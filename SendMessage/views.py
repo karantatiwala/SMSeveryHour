@@ -57,7 +57,7 @@ def twilioSMS(k,msg, count):
 
 		hour = local_date.time().hour
 
-		if hour in range(4, 7):
+		if hour in range(12, 15):
 			client = Client(account_sid, auth_token)
 			message = client.messages.create(to=k, from_=my_twilio, body=msg)
 
@@ -126,7 +126,7 @@ def sendSMS(request):
 		if k in ['+919680848615', '+919462767891', '+919925100879']:
 			scheduler = BackgroundScheduler()
 			count = 0
-			scheduler.add_job(twilioSMS, 'interval', minutes=10, args=(k,msg,count))
+			scheduler.add_job(twilioSMS, 'interval', minutes=60, args=(k,msg,count))
 			print "bappa"
 			scheduler.start()
 			atexit.register(lambda: scheduler.shutdown(wait=False))
