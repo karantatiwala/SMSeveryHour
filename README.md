@@ -5,7 +5,6 @@ If the status of the message is Sent or Delivered after 1min of sending the mess
 After entering the number, John will be redirected to Logs Information of Delivered, Undelivered <br><br>
 To get benefit of this application, one need to have Twilio account with Account Id, Auth key and a numbered verified by Twilio for SMS services. <br><br>
 This application demonstates a simple Web Application based on [Django Framework](https://www.djangoproject.com/) of Python. The application uses python2.7  
-<hr>
 
 ## To run this app locally 
 1. Install Python2.7 : https://www.python.org/downloads/
@@ -32,3 +31,4 @@ This application demonstates a simple Web Application based on [Django Framework
 9. Running the Server <br>
 `python manage.py runserver` <br>
 Open localhost on your browser  `127.0.0.1:8000` <br>
+To stop SMS at any point, close your terminal by `Ctrl + c`
