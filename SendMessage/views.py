@@ -22,10 +22,10 @@ from models import MessageLog
 import csv
 import logging
 
-account_sid = "ACdef11a02e9ad8742733e867273c87286"
-auth_token = "e3de76780ef4f40d326f8480c67dc5c9"
-my_twilio = "+15732791035"
-API_Key='V955UXDHBY3A'
+account_sid = "--"
+auth_token = "--"
+my_twilio = "--"
+API_Key='--'
 
 error = "Unregistered Number"
 
@@ -102,7 +102,7 @@ def sendSMS(request):
 		print k
 
 		# Checking if number registered on Twilio or not and starting the Scheduler for every hour
-		if k in ['+919680848615', '+919462767891', '+919925100879']:
+		if k in ['--', '--', '--']:
 			scheduler = BackgroundScheduler()
 			count = 0
 			scheduler.add_job(twilioSMS, 'interval', minutes=60, args=(k,msg,count))
