@@ -16,7 +16,7 @@ phonenumbers==8.8.11
 psycopg2==2.7
 pycountry==17.9.23
 pycparser==2.18
-PyJWT==1.5.3
+PyJWT==2.4.0
 pyOpenSSL==17.5.0
 pytz==2018.3
 requests==2.18.4
